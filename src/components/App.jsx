@@ -1,12 +1,11 @@
-import { useState, useEffect } from 'react';
 import { Navbar } from './Navbar';
-import { Game } from './Game';
+import { Home } from './Home';
 
 function App() {
   return (
     <>
       <Navbar />
-      <Game />
+      <Home />
     </>
   );
 }

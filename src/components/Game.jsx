@@ -47,12 +47,18 @@ export function Game() {
 
   return (
     <>
-      <p className="text-xl text-slate-900">Score: {score}</p>
-      <div className="grid grid-cols-5 gap-4">
-        {pokemon.map((p, index) => (
-          <Card key={index} pokemon={p} onClick={handleClick} />
-        ))}
-      </div>
+      {gameOver ? (
+        <p className="text-slate-900 text-xl text-center">GAME OVER</p>
+      ) : (
+        <>
+          <p className="text-xl text-slate-900">Score: {score}</p>
+          <div className="grid grid-cols-5 gap-4">
+            {pokemon.map((p, index) => (
+              <Card key={index} pokemon={p} onClick={handleClick} />
+            ))}
+          </div>
+        </>
+      )}
     </>
   );
 }
