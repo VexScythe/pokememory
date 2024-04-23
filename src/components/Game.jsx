@@ -28,11 +28,26 @@ export function Game() {
   };
 
   function handleClick(name) {
-    console.log(name);
+    if (clickedPokemon.includes(name)) {
+      setGameOver(true);
+    } else {
+      setClickedPokemon([...clickedPokemon, name]);
+      setScore(score + 1);
+      setPokemon(shuffleArray(pokemon));
+    }
   }
+
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
 
   return (
     <>
+      <p className="text-xl text-slate-900">Score: {score}</p>
       <div className="grid grid-cols-5 gap-4">
         {pokemon.map((p, index) => (
           <Card key={index} pokemon={p} onClick={handleClick} />
