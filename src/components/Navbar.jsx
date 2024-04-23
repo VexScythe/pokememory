@@ -1,10 +1,7 @@
 import pokeball from '../assets/pokeball.svg';
 import { NavLink } from 'react-router-dom';
 
-export function Navbar({ changePage }) {
-  function handleClick(e) {
-    changePage(e.target.name);
-  }
+export function Navbar() {
   return (
     <nav className="bg-slate-900 text-slate-300 text-xl flex justify-between">
       <NavLink className="flex gap-4 m-3" to={'/'}>
